@@ -1,4 +1,4 @@
-
+<meta charset="UTF-8">
 <title>mission_4</title>
 
 
@@ -17,19 +17,19 @@ $editpass  = $_POST[editpass];
 
 
 
-/*  ÉfÅ[É^ÉxÅ[ÉXê⁄ë±  */
-$dsn = 'ÉfÅ[É^ÉxÅ[ÉX';
-$user = 'ÉÜÅ[ÉUÅ[ÉlÅ[ÉÄ';
-$password = 'ÉpÉXÉèÅ[Éh';
+/*  „Éá„Éº„Çø„Éô„Éº„ÇπÊé•Á∂ö  */
+$dsn = '„Éá„Éº„Çø„Éô„Éº„Çπ';
+$user = '„É¶„Éº„Ç∂„Éº„Éç„Éº„É†';
+$password = '„Éë„Çπ„ÉØ„Éº„Éâ';
 $pdo = new PDO($dsn,$user,$password);
 
-/*  ÉeÅ[ÉuÉãçÏê¨  */
+/*  „ÉÜ„Éº„Éñ„É´‰ΩúÊàê  */
 $sql="CREATE TABLE mission4(id INT AUTO_INCREMENT, name char(32), comment TEXT, pass char(16), date char(32), primary key(id))";
 $create = $pdo->query($sql);
 
 
 
-/*  ï“èWÉtÉHÅ[ÉÄèàóù  */
+/*  Á∑®ÈõÜ„Éï„Ç©„Éº„É†Âá¶ÁêÜ  */
 
 
 if(!empty($_POST[edit]))
@@ -40,11 +40,11 @@ if(!empty($_POST[edit]))
    $flags_edit=false;
    foreach($selectall as $row)
      {
-      $flag_edit = false;/*ÉpÉXÇ∆ÇËÇ†Ç¶Ç∏ãU*/
+      $flag_edit = false;/*„Éë„Çπ„Å®„Çä„ÅÇ„Åà„ÅöÂÅΩ*/
 
       if(($_POST[edit]==$row[0])and($editpass==$row[3]))
         {
-         $flag_edit = true;/*ÉpÉXê^Ç…è„èëÇ´*/
+         $flag_edit = true;/*„Éë„ÇπÁúü„Å´‰∏äÊõ∏„Åç*/
          $edit = $_POST[edit];
          $nm   = $row[1];
          $kome = $row[2];
@@ -53,16 +53,16 @@ if(!empty($_POST[edit]))
 
       $flags_edit = $flag_edit || $flags_edit; 
 
-     }/*foreachï¬*/
-   if(!$flags_edit){echo"ÉpÉXÉèÅ[ÉhÇ™à·Ç¢Ç‹Ç∑";}
-  }/*ëÂifï¬*/
+     }/*foreachÈñâ*/
+   if(!$flags_edit){echo"„Éë„Çπ„ÉØ„Éº„Éâ„ÅåÈÅï„ÅÑ„Åæ„Åô";}
+  }/*Â§ßifÈñâ*/
 
 
 
-/*  ìäçeÉtÉHÅ[ÉÄèàóù  */
+/*  ÊäïÁ®ø„Éï„Ç©„Éº„É†Âá¶ÁêÜ  */
 if(!empty($name) and !empty($comment))
   {
-   //êVãKìäçe
+   //Êñ∞Ë¶èÊäïÁ®ø
    if(empty($editnum))
      {
       $insert=$pdo->prepare('INSERT INTO mission4 (name,comment,pass,date) VALUES (:name, :comment, :pass, :date)');
@@ -73,7 +73,7 @@ if(!empty($name) and !empty($comment))
       $insert->execute();
      }
 
-   //ï“èW
+   //Á∑®ÈõÜ
    else
      {
       $sql = "update mission4 set name='$name', comment='$comment', pass='$pass', date='$date' where id=$editnum";
@@ -83,7 +83,7 @@ if(!empty($name) and !empty($comment))
 
 
 
-/*  çÌèúÉtÉHÅ[ÉÄèàóù  */
+/*  ÂâäÈô§„Éï„Ç©„Éº„É†Âá¶ÁêÜ  */
 $delete    = $_POST[delete];
 $delpass= $_POST[delpass];
 
@@ -95,11 +95,11 @@ if(!empty($delete))
    $flags_del=false;
    foreach($selectall as $row)
      {
-      $flag_del = false;/*ÉpÉXÇ∆ÇËÇ†Ç¶Ç∏ãU*/
+      $flag_del = false;/*„Éë„Çπ„Å®„Çä„ÅÇ„Åà„ÅöÂÅΩ*/
 
       if(($delete==$row[0])and($delpass==$row[3]))
         {
-         $flag_del = true;/*ÉpÉXê^Ç…è„èëÇ´*/
+         $flag_del = true;/*„Éë„ÇπÁúü„Å´‰∏äÊõ∏„Åç*/
          $sql = "delete from mission4 where id=$delete";
          $result = $pdo->query($sql);
         }
@@ -107,7 +107,7 @@ if(!empty($delete))
       $flags_del = $flag_del || $flags_del;
 
      }
-   if(!$flags_del){echo "ÉpÉXÉèÅ[ÉhÇ™à·Ç¢Ç‹Ç∑";}
+   if(!$flags_del){echo "„Éë„Çπ„ÉØ„Éº„Éâ„ÅåÈÅï„ÅÑ„Åæ„Åô";}
   }
 
 
@@ -118,29 +118,29 @@ if(!empty($delete))
 
 
 
-<!--     ì¸óÕópÉtÉHÅ[ÉÄ      -->
+<!--     ÂÖ•ÂäõÁî®„Éï„Ç©„Éº„É†      -->
 
-<!-- ëóêMÉtÉHÅ[ÉÄ -->
+<!-- ÈÄÅ‰ø°„Éï„Ç©„Éº„É† -->
   <p><form action="mission_4.php" method="post">
-     <input type="text"  name="name"  placeholder="ñºëO" value="<?php echo $nm; ?>" ><br>
-     <input type="text"  name="comment"  placeholder="ÉRÉÅÉìÉg" value="<?php echo $kome; ?>"><br>
-     <input type="text"  name="pass"  placeholder="ï“èW/çÌèúópÉpÉXÉèÅ[Éh" value="<?php echo $path; ?>">
-     <input type="submit" value="ëóêM">
-   Å@<input type="hidden"  name="editnum" value="<?php echo $edit; ?>">
+     <input type="text"  name="name"  placeholder="ÂêçÂâç" value="<?php echo $nm; ?>" ><br>
+     <input type="text"  name="comment"  placeholder="„Ç≥„É°„É≥„Éà" value="<?php echo $kome; ?>"><br>
+     <input type="text"  name="pass"  placeholder="Á∑®ÈõÜ/ÂâäÈô§Áî®„Éë„Çπ„ÉØ„Éº„Éâ" value="<?php echo $path; ?>">
+     <input type="submit" value="ÈÄÅ‰ø°">
+   „ÄÄ<input type="hidden"  name="editnum" value="<?php echo $edit; ?>">
   </p>
 
-<!--ï“èWî‘çÜÉtÉHÅ[ÉÄ -->
+<!--Á∑®ÈõÜÁï™Âè∑„Éï„Ç©„Éº„É† -->
   <p><form action="mission_4.php" method="post">
-     <input type="text"  name="edit"  placeholder="ï“èWëŒè€î‘çÜ"><br>
-     <input type="text" name="editpass" placeholder="ÉpÉXÉèÅ[Éh">
-     <input type="submit" value="ï“èW">
+     <input type="text"  name="edit"  placeholder="Á∑®ÈõÜÂØæË±°Áï™Âè∑"><br>
+     <input type="text" name="editpass" placeholder="„Éë„Çπ„ÉØ„Éº„Éâ">
+     <input type="submit" value="Á∑®ÈõÜ">
   </p>
 
-<!--çÌèúÉtÉHÅ[ÉÄ -->
+<!--ÂâäÈô§„Éï„Ç©„Éº„É† -->
   <p><form action="mission_4.php" method="post">
-     <input type="text"  name="delete"  placeholder="çÌèúëŒè€î‘çÜ"><br>
-     <input type="text"  name="delpass" placeholder="ÉpÉXÉèÅ[Éh">
-     <input type="submit" value="çÌèú">
+     <input type="text"  name="delete"  placeholder="ÂâäÈô§ÂØæË±°Áï™Âè∑"><br>
+     <input type="text"  name="delpass" placeholder="„Éë„Çπ„ÉØ„Éº„Éâ">
+     <input type="submit" value="ÂâäÈô§">
   </p>
 
 
@@ -154,7 +154,7 @@ if(!empty($delete))
 
 <?php
 
-//ÉeÅ[ÉuÉãàÍóóäJé¶
+//„ÉÜ„Éº„Éñ„É´‰∏ÄË¶ßÈñãÁ§∫
 $sql='SHOW TABLES';
 $show_t=$pdo->query($sql);
 foreach($show_t as $row)
@@ -162,7 +162,7 @@ foreach($show_t as $row)
 echo "<hr>";
 
 
-//ÉeÅ[ÉuÉãèÓïÒäJé¶
+//„ÉÜ„Éº„Éñ„É´ÊÉÖÂ†±ÈñãÁ§∫
 $sql='SHOW CREATE TABLE mission4';
 $result=$pdo->query($sql);
 foreach($result as $row)
